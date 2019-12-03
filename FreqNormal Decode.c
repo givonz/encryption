@@ -1,7 +1,8 @@
 /*****************************************/
-/*  			                         */
+/*  			                 */
 /*  Frequency Normalization Encrypt Pgm  */
-/*  			                         */
+/*                by Givon Zirkind       */
+/*  			                 */
 /*****************************************/
 
 /*  Frequency Normalization Encryption Version 1.0  */
@@ -71,23 +72,6 @@ char * inb_addr;
 /* declare file pointer */
 
 FILE *fp_in, *fp_out, *fp_scratch;
-/*
-strcpy(filename,argv[1]);
-fp_in=fopen(filename,"rb");
-if (fp_in == NULL) {
-	printf("Could not open input file %s",filename);
-	getchar();
-	exit(1);
-	}
-strcpy(filename,argv[1]); 
-strcat(filename,".tec");  
-fp_out=fopen(filename,"wb");
-if (fp_out == NULL) {
-	printf("Could not open output file %s",filename);
-	getchar();
-	exit(1);
-	}
-*/
 
 while(0==0) {
 	printf("Please enter filename: \n");
@@ -141,7 +125,6 @@ if (key[0]==13)  printf("Your key is a null key.\n");
 else printf("\n");
 printf("Correct? (Y/N) \n");
 ans=getche();
-//if ((ans=='N') || (ans=='n')) printf("\n");
 printf("\n");
 if ((ans=='N') || (ans=='n')) goto REENTERKEY;
 if (key[0]==13) { // <enter> null key
@@ -157,27 +140,14 @@ if (key[0]==13) { // <enter> null key
 if ((ans!='Y') && (ans!='y')) goto REENTERKEY;
 modkey=strlen(key)-1; // remove enter key
 
-
-// get date time
-
 // display version #
-
 
 // set modular key counters
 E=T=O=A=N=I=S=0;
-//E=0;
-//T=0;
-//O=0;
-//N=0;
-//I=0;
-//N=0;
-//S=0;
 
 e=t=o=a=n=i=s=0;
 sp=0;
 x=0;
-//for(x=0;x<filelength(fileno(fp_in));x++) {
-//	if(eof(fp_in)!=0) break;
 while(0==0) { // file position pointer
 	if(x>=filelength(fileno(fp_in))) break;
 	while(1) { // too keep value
@@ -194,11 +164,7 @@ while(0==0) { // file position pointer
 			out_byte='A';
 			break;
 		} // end in byte == A
-/*		if(in_byte=='B' || 'C' || 'D') {
-			out_byte=in_byte-61; // 5
-			break; 
-		}
-*/		
+		
 		if(in_byte==5) {
 			out_byte='B'; // 5--B
 			break; 
@@ -215,11 +181,6 @@ while(0==0) { // file position pointer
 			out_byte='E';
 			break;
 		} // end in byte == E
-/*		if(in_byte=='F' || 'G' || 'H') { // 14-16
-			out_byte=in_byte-56;
-			break;  
-		}
-*/
 		if(in_byte==14) { // 14--F
 			out_byte='F';
 			break;  
@@ -236,11 +197,6 @@ while(0==0) { // file position pointer
 			out_byte='I';
 			break;
 		} // end in byte == I
-/*		if(in_byte=='J' || 'K' || 'L' || 'M') { // 18-21
-			out_byte=in_byte-52;
-			break;  
-		}
-*/
 		if(in_byte==22) { // 22--J
 			out_byte='J';
 			break;  
@@ -265,11 +221,6 @@ while(0==0) { // file position pointer
 			out_byte='O';
 			break;
 		} // end in byte == O
-/*		if(in_byte=='P' || 'Q' || 'R') { // 34-36 
-			out_byte=in_byte-46;
-			break;  
-		}
-*/
 		if(in_byte==34) { // 34--P
 			out_byte='P';
 			break;  
@@ -290,12 +241,6 @@ while(0==0) { // file position pointer
 			out_byte='T';
 			break;
 		} // end in byte == T
-		// if(in_byte=='T') break; didn't change anything.
-/*		if(in_byte=='U' || 'V' || 'W' || 'X' || 'Y' || 'Z') {  // 58-63
-			out_byte=in_byte-27;
-			break;  
-		}
-*/
 		if(in_byte==47) {  // 47--U
 			out_byte='U';
 			break;  
@@ -326,11 +271,6 @@ printf("got here a\n");
 			out_byte='a';
 			break;
 		} // end in byte == a
-/*		if(in_byte=='b' || 'c' || 'd') {  // 65-67
-			out_byte=in_byte-33;
-			break;  
-		}
-*/
 		if(in_byte==58) {  // 58
 			out_byte='b';
 			break;  
@@ -347,11 +287,6 @@ printf("got here a\n");
 			out_byte='e';
 			break;
 		} // end in byte == e
-/*		if(in_byte=='f' || 'g' || 'h') {  // 74-76
-			out_byte=in_byte-28;
-			break;  
-		}
-*/
 		if(in_byte==67) {  // 67
 			out_byte='f';
 			break;  
@@ -368,11 +303,6 @@ printf("got here a\n");
 			out_byte='i';
 			break;
 		} // end in byte == i
-/*		if(in_byte=='j' || 'k' || 'l' || 'm') {  // 82-85
-			out_byte=in_byte-24;
-			break;  
-		}
-*/
 		if(in_byte==75) {  // 75
 			out_byte='j';
 			break;  
@@ -397,11 +327,6 @@ printf("got here a\n");
 			out_byte='o';
 			break;
 		} // end in byte == o
-/*		if(in_byte=='p' || 'q' || 'r') {  // 91-93
-			out_byte=in_byte-21;
-			break; 
-		}
-*/
 		if(in_byte==87) {  // 87--p
 			out_byte='p';
 			break; 
@@ -424,11 +349,6 @@ printf("got here a\n");
 			if (t==6) t=0;
 			break;
 		} // end in byte == I
-/*		if(in_byte=='u' || 'v' || 'w' || 'x' || 'y' || 'z') { // 104-109
-			out_byte=in_byte-13;
-			break;  
-		}
-*/
 		if(in_byte==100) { // 100
 			out_byte='u';
 			break;  
@@ -455,8 +375,6 @@ printf("got here a\n");
 		}
 		
 // other characters
-
-		//if((in_byte>=0) && (in_byte <=31)) {  // 0-31 start @ 110
 		if((in_byte>=110) && (in_byte <=141)) {  // 0-31 start @ 110
 			out_byte=in_byte-110;
 			break;  
@@ -465,8 +383,6 @@ printf("got here a\n");
 			out_byte=32; // space
 			break;
 		} // end in byte == space
-		//if((in_byte>32) && (in_byte <=64)) {  // 0-13 start @ 110
-		//if((in_byte>=148) && (in_byte <=180)) {  // > 148
 		if((in_byte>=148) && (in_byte <=180)) {  // > 148
 			//out_byte=in_byte-148;
 			out_byte=in_byte-116;
@@ -490,35 +406,8 @@ fclose(fp_out);
 fclose(fp_in);
 
 printf("Process Complete");
-// test code -- chk output
-
-/*
-// will need to adjust to filename as string
-strcpy(filename,argv[1]);
-strcat(filename,".tec");
-fp_in=fopen(filename,"rb");
-if (fp_in == NULL) {
-	printf("Could not open output for examination\n");
-	getchar();
-	exit (1);
-	}
-
-for (x=0;x<filelength(fileno(fp_in));x++) {
-	shingle=getc(fp_in);
-printf("\nshingle=%x %d %c",shingle,shingle,shingle);
-getchar();
-	// shingle<<=8;
-}
-*/
 
 fclose(fp_in);
-/*strcat(erasecmd,argv[1]);*/
-/*strcat(erasecmd,".tmp");*/
-/*system(erasecmd);*/
-
-// backdoor routine -- embed key
-// read in file
-
 
 exit(0);
 
